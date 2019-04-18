@@ -3,6 +3,11 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# local file
+cap_img
+char2num.csv
+.vscode
+
 # C extensions
 *.so
 
