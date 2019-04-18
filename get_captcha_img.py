@@ -21,7 +21,7 @@ def img_generate():
         except:
             pass
         finally:
-            image = ImageCaptcha()
+            image = ImageCaptcha(80, 30)
             for _ in range(num_img):
                 label = ''.join(random.choices(cap_list, k=cap_length))
                 image.write(label, 'cap_img/'+label+'.jpg')
