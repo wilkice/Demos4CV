@@ -7,7 +7,7 @@ import setting
 import cv2
 
 
-# TODO： use opencv
+# TODO： use opencv, need to close?
 
 class MyData(Dataset):
     """A customized data loader for captcha images"""
@@ -42,7 +42,6 @@ class MyData(Dataset):
         for image_fn in self.filenames:
             image = cv2.imread(image_fn)
             self.images.append(image.copy())
-            image.close()  # avoid too many opened files
             label_string = image_fn[-8:-4]
             label=ohe.encode(label_string)
             self.labels.append(label)
@@ -77,7 +76,7 @@ transform = transforms.Compose([
 
 def get_train_dataloader():
     dataset = MyData(setting.train_img_path, transform=transform)
-    return DataLoader(dataset, batch_size=16, shuffle=True,num_workers=2)
+    return DataLoader(dataset, batch_size=32, shuffle=True,num_workers=2)
 
 def get_valid_dataloader():
     dataset = MyData(setting.valid_img_path, transform=transform)

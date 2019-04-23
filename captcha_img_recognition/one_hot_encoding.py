@@ -27,5 +27,5 @@ num2char = {item[1]: item[0]for item in char2num.items()}
 
 
 if __name__ == "__main__":
-    vector = encode('JoK1')
-    print(decode(vector))
+    vector = encode('Joh2')
+    print(vector.shape)

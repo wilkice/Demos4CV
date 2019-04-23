@@ -21,10 +21,10 @@ image_width = 160
 
 # specify img path and img nums
 train_img_path = 'dataset/train'
-train_img_nums = 10000
+train_img_nums = 100000
 
 valid_img_path = 'dataset/valid'
-valid_img_nums = 200
+valid_img_nums = 10000
 
 test_img_path = 'dataset/test'
 test_img_nums = 10
