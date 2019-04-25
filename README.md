@@ -6,9 +6,10 @@ Demos for Computer Vision.
 * don't need to preprocess captcha imgs
 
 # To-do:
-[ ] resize input img so that this model can accept any size of img
-[ ] code format and explaination
-[ ] add test.py
+- [ ] resize input img so that this model can accept any size of img
+- [ ] code format and explaination
+- [ ] add test.py
+- [ ] save generate img data to memory directly
 
 # How to use
 1. Make sure you have installed these python modules
