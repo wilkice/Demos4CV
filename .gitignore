@@ -3,12 +3,13 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+
 # local file
 cap_img
 char2num.csv
 .vscode
 captcha_img_recognition/dataset
-
+transfer_learning/hymenoptera_data
 # C extensions
 *.so
 
