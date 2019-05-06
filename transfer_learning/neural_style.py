@@ -1,9 +1,14 @@
 """
 Neural transfer using PyTorch
+how to use:
+1. put content image and style image in the same folder of this .py file, and name them "content.jpg" and "style.jpg"
+2. run this .py file, the style transfer file will be saved as "transfer.jpg" in same folder
+
 """
 
 import copy
 from PIL import Image
+from time import time
 
 import torch
 import torch.optim as optim
@@ -13,11 +18,9 @@ import torch.nn.functional as F
 import torchvision.transforms as transforms
 import torchvision.models as models
 
-# from torch.utils.tensorboard import SummaryWriter
 import matplotlib.pyplot as plt
 
-# TODO: tensorboard
-
+since = time()
 # use GPU if available
 if torch.cuda.is_available():
     device = torch.device('cuda:0')
@@ -27,8 +30,6 @@ else:
     imsize = 128
 
 # pic preprocessing
-# writer = SummaryWriter()
-
 
 def image_loader(img_name):
     image = Image.open(img_name)
@@ -54,6 +55,7 @@ assert style_img.size() == content_img.size()
 """Loss function
 
 """
+
 
 class ContentLoss(nn.Module):
     def __init__(self, target):
@@ -86,7 +88,7 @@ class StyleLoss(nn.Module):
 """use pretrained model
 """
 
-cnn = models.vgg19(pretrained=True).features.to(device).eval()
+cnn = models.vgg16(pretrained=True).features.to(device).eval()
 
 # Normalize our img for vgg
 mean = torch.tensor([0.485, 0.456, 0.406]).to(device)
@@ -96,8 +98,8 @@ std = torch.tensor([0.229, 0.224, 0.225]).to(device)
 class Normalization(nn.Module):
     def __init__(self, mean, std):
         super(Normalization, self).__init__()
-        self.mean = torch.tensor(mean).view(-1, 1, 1)
-        self.std = torch.tensor(std).view(-1, 1, 1)
+        self.mean = mean.view(-1, 1, 1)
+        self.std = std.view(-1, 1, 1)
 
     def forward(self, img):
         return (img-self.mean) / self.std
@@ -117,7 +119,7 @@ def get_model(cnn, mean, std, style_img, content_img):
     normalization = Normalization(mean, std).to(device)
     model = nn.Sequential(normalization)
 
-    i=0  # layer num
+    i = 0  # layer num
     for layer in cnn.children():
         if isinstance(layer, nn.Conv2d):
             i += 1
@@ -160,14 +162,15 @@ def get_model(cnn, mean, std, style_img, content_img):
 input_img = content_img.clone()
 optimizer = optim.LBFGS([input_img.requires_grad_()])
 
+
 def run_style_transfer(cnn=cnn, mean=mean, std=std, content_img=content_img, style_img=style_img, epochs=500, style_weight=1000000, content_weight=1):
     print('Building the style transfer model...')
-    
+
     model, style_losses, content_losses = get_model(
         cnn, mean, std, style_img, content_img)
     print('Optimizing...')
-    run = [0]
-    while run[0] <= epochs:
+    iteration = 0
+    while iteration <= epochs:
         def closure():
             input_img.data.clamp_(0, 1)
             optimizer.zero_grad()
@@ -185,9 +188,9 @@ def run_style_transfer(cnn=cnn, mean=mean, std=std, content_img=content_img, sty
 
             loss = style_score + content_score
             loss.backward()
-            run[0] +=1
-            if run[0] % 50 == 0:
-                print('run {}'.format(run))
+            
+            if iteration % 50 == 0:
+                print('run {}'.format(iteration))
                 print('Style loss: {:.4f}  Content loss: {:.4f}'.format(
                     style_score.item(), content_score.item()))
                 print()
@@ -202,6 +205,7 @@ unloader = transforms.ToPILImage()  # reconvert into PIL image
 
 plt.ion()
 
+
 def imshow(tensor, title=None):
     image = tensor.cpu().clone()  # we clone the tensor to not do changes on it
     image = image.squeeze(0)      # remove the fake batch dimension
@@ -211,8 +215,12 @@ def imshow(tensor, title=None):
     if title is not None:
         plt.title(title)
     plt.pause(0.001)
+
+
 imshow(output, title='Output Image')
 
 # sphinx_gallery_thumbnail_number = 4
 plt.ioff()
 plt.show()
+last = time()- since
+print('Total time: {:2f}s'.format(last))
