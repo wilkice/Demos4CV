@@ -169,8 +169,8 @@ def run_style_transfer(cnn=cnn, mean=mean, std=std, content_img=content_img, sty
     model, style_losses, content_losses = get_model(
         cnn, mean, std, style_img, content_img)
     print('Optimizing...')
-    iteration = 0
-    while iteration <= epochs:
+    iteration = [0]
+    while iteration[0] <= epochs:
         def closure():
             input_img.data.clamp_(0, 1)
             optimizer.zero_grad()
@@ -188,9 +188,9 @@ def run_style_transfer(cnn=cnn, mean=mean, std=std, content_img=content_img, sty
 
             loss = style_score + content_score
             loss.backward()
-            
-            if iteration % 50 == 0:
-                print('run {}'.format(iteration))
+            iteration[0] += 1
+            if iteration[0] % 50 == 0:
+                print('run {}'.format(iteration[0]))
                 print('Style loss: {:.4f}  Content loss: {:.4f}'.format(
                     style_score.item(), content_score.item()))
                 print()
