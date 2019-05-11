@@ -10,6 +10,8 @@ char2num.csv
 .vscode
 captcha_img_recognition/dataset
 transfer_learning/hymenoptera_data
+data/
+files
 # C extensions
 *.so
 
