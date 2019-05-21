@@ -1,0 +1,88 @@
+[net]
+# 1
+[convolutional]
+[convolutional]
+[convolutional]
+[convolutional]
+[shortcut]
+# 2
+[convolutional]
+[convolutional]
+[convolutional]
+[shortcut]
+# 3
+[convolutional]
+[convolutional]
+[shortcut]
+#4
+[convolutional]
+[convolutional]
+[convolutional]
+[shortcut]
+# 5
+[convolutional]
+[convolutional]
+[shortcut]
+* 7
+
+# 6
+[convolutional]
+[convolutional]
+[convolutional]
+[shortcut]
+
+# 8
+[convolutional]
+[convolutional]
+[shortcut]
+* 7
+
+# 9
+[convolutional]
+[convolutional]
+[convolutional]
+[shortcut]
+
+# 10
+[convolutional]
+[convolutional]
+[shortcut]
+* 3
+
+
+[convolutional]
+[convolutional]
+[convolutional]
+[convolutional]
+[convolutional]
+[convolutional]
+[convolutional]
+[yolo]
+
+[route]
+[convolutional]
+[upsample]
+[route]
+
+[convolutional]
+[convolutional]
+[convolutional]
+[convolutional]
+[convolutional]
+[convolutional]
+[convolutional]
+[yolo]
+
+[route]
+[convolutional]
+[upsample]
+[route]
+
+[convolutional]
+[convolutional]
+[convolutional]
+[convolutional]
+[convolutional]
+[convolutional]
+[convolutional]
+[yolo]
