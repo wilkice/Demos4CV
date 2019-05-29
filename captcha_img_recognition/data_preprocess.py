@@ -14,11 +14,10 @@ class MyData(Dataset):
     def __init__(self, folder, transform=None, preload=False):
         """Initialize the captcha dataset
         
-        Args:
+        Arguments:
             - folder: relative root directory of images
             - transform: a custom transform function
             - preload: if preload the dataset to memory
-        TODO:transform or transforms in args
         """
         self.images = None
         self.labels = None
@@ -26,7 +25,7 @@ class MyData(Dataset):
         self.folder = folder
         self.transform = transform
 
-        # get relative filenames 
+        # get relative filenames
         self.filenames = [os.path.join(folder, img) for img in os.listdir(folder)]
 
         # if preload dataset to memory
@@ -43,7 +42,7 @@ class MyData(Dataset):
             image = cv2.imread(image_fn)
             self.images.append(image.copy())
             label_string = image_fn[-8:-4]
-            label=ohe.encode(label_string)
+            label = ohe.encode(label_string)
             self.labels.append(label)
 
     def __getitem__(self, idx):
@@ -56,32 +55,36 @@ class MyData(Dataset):
             image_name = self.filenames[idx]
             image = cv2.imread(image_name)
             label_string = image_name[-8:-4]
-            label=ohe.encode(label_string)
+            label = ohe.encode(label_string)
         # if we have transform functions
         if self.transform:
             image = self.transform(image)
         return image, label
 
     def __len__(self):
-        """
-        Total number of samples in the dataset
+        """Total number of samples in the dataset
         """
         return self.length
 
 # convert numpy.ndarray (H x W x C) in the range [0, 255]
 # to a torch.FloatTensor of shape (C x H x W) in the range [0.0, 1.0]
+
+
 transform = transforms.Compose([
     transforms.ToTensor()
 ])
 
+
 def get_train_dataloader():
-    dataset = MyData(setting.train_img_path, transform=transform)
-    return DataLoader(dataset, batch_size=32, shuffle=True,num_workers=2)
+    dataset = MyData(setting.train_folder_path, transform=transform)
+    return DataLoader(dataset, batch_size=32, shuffle=True, num_workers=2)
+
 
 def get_valid_dataloader():
-    dataset = MyData(setting.valid_img_path, transform=transform)
+    dataset = MyData(setting.valid_folder_path, transform=transform)
     return DataLoader(dataset, batch_size=32, shuffle=False, num_workers=2)
 
+
 def get_test_dataloader():
-    dataset = MyData(setting.test_img_path, transform=transform)
+    dataset = MyData(setting.test_folder_path, transform=transform)
     return DataLoader(dataset, batch_size=64, shuffle=False, num_workers=2)
