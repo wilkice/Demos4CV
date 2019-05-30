@@ -8,6 +8,8 @@ import os
 import random
 
 from captcha.image import ImageCaptcha
+from tqdm import tqdm
+
 import setting
 
 
@@ -21,7 +23,7 @@ def generate_img(imgfolder, img_num):
     if not os.path.exists(imgfolder):
         os.makedirs(imgfolder)
     image = ImageCaptcha(setting.image_width, setting.image_height)
-    for i in range(img_num):
+    for i in tqdm(range(img_num)):
         label = ''.join(random.choices(setting.char_pool, k=setting.char_num))
         img_name = os.path.join(imgfolder, label + '.png')
         image.write(label, img_name)

@@ -1,5 +1,9 @@
+import os
+
 import numpy as np
 import torch
+from tqdm import tqdm
+
 import setting
 import data_preprocess
 from cnn_model import Net
@@ -11,21 +15,16 @@ def main():
     net.eval()
     net.load_state_dict(torch.load('model.pt'))
     print('model has been loaded.')
-
     correct = 0
     valid_dataloader = data_preprocess.get_valid_dataloader()
-    total = setting.valid_img_nums
+    total = len(os.listdir(setting.valid_folder_path))
     with torch.no_grad():
-        for batch_size, (imgs, labels) in enumerate(valid_dataloader):
+        for (imgs, labels) in tqdm((valid_dataloader)):
             imgs, labels = imgs.to(setting.device), labels.to(setting.device)
             labels_ohe_predict = net(imgs)
-            
-            
             # for each img in one batch
-            for single in range(labels_ohe_predict.shape[0]):
-                
+            for single in range(labels_ohe_predict.shape[0]):              
                 single_labels_ohe_predict = labels_ohe_predict[single, :]
-                
                 predict_label = ''
                 # get predict_label
                 for slice in range(setting.char_num):
@@ -35,7 +34,6 @@ def main():
                 # get true label
                 true_label = ohe.decode(labels[single, :].cpu().numpy())
                 # print('true label:', true_label, '   predict label:', predict_label)
-            # print(true_label,predict_label)
                 if predict_label == true_label:
                     correct += 1
         print('accuracy: {}/{} -- {:.4f}'.format(correct, total, correct/total))

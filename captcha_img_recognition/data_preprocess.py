@@ -53,7 +53,7 @@ class MyData(Dataset):
             label = self.labels[idx]
         else:
             image_name = self.filenames[idx]
-            image = cv2.imread(image_name)
+            image = cv2.imread(image_name, 0)
             label_string = image_name[-8:-4]
             label = ohe.encode(label_string)
         # if we have transform functions
@@ -77,7 +77,7 @@ transform = transforms.Compose([
 
 def get_train_dataloader():
     dataset = MyData(setting.train_folder_path, transform=transform)
-    return DataLoader(dataset, batch_size=32, shuffle=True, num_workers=2)
+    return DataLoader(dataset, batch_size=1024, shuffle=True, num_workers=2)
 
 
 def get_valid_dataloader():

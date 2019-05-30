@@ -21,14 +21,15 @@ image_width = 160
 
 # specify img path and img nums
 train_folder_path = 'dataset/train'
-train_img_nums = 100
+train_img_nums = 10000
 
 valid_folder_path = 'dataset/valid'
-valid_img_nums = 10
+valid_img_nums = 1000
 
 test_folder_path = 'dataset/test'
-test_img_nums = 1
+test_img_nums = 0
 
 # specify GPU or CPU, we only talk about at most 1 GPU card here
 use_cuda = torch.cuda.is_available()
 device = torch.device("cuda:0" if use_cuda else "cpu")
+print('You are using', device)

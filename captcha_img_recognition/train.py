@@ -5,6 +5,7 @@ from time import time
 
 import torch
 import torch.nn as nn
+from tqdm import tqdm
 
 import data_preprocess
 from cnn_model import Net
@@ -23,8 +24,8 @@ def main():
     criterion = nn.CrossEntropyLoss()
     optimizer = torch.optim.Adam(net.parameters(), lr=learning_rate)
     train_dataloader = data_preprocess.get_train_dataloader()
-    
-    for epoch in range(num_epochs):
+    loss = 0
+    for epoch in tqdm(range(num_epochs)):
         start = time()
         # for train accuracy
         # total = setting.train_img_nums
@@ -36,7 +37,7 @@ def main():
             labels = labels.long()
             labels_ohe_predict = net(imgs)
 
-            loss = 0
+            
             for i in range(setting.char_num):
                 one_label = labels[:, i * setting.pool_length:(i+1) * setting.pool_length]
                 one_class = one_label.argmax(dim=1)

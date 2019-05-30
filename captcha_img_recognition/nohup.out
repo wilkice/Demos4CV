@@ -1,0 +1,57 @@
+  0%|          | 0/30 [00:00<?, ?it/s]The modle has been initialized.
+Traceback (most recent call last):
+  File "train.py", line 75, in <module>
+    main()
+  File "train.py", line 33, in main
+    for batch_idx, (imgs, labels) in enumerate(train_dataloader):
+  File "/opt/anaconda3/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 576, in __next__
+    idx, batch = self._get_batch()
+  File "/opt/anaconda3/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 553, in _get_batch
+    success, data = self._try_get_batch()
+  File "/opt/anaconda3/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 511, in _try_get_batch
+    data = self.data_queue.get(timeout=timeout)
+  File "/opt/anaconda3/lib/python3.7/multiprocessing/queues.py", line 104, in get
+    if not self._poll(timeout):
+  File "/opt/anaconda3/lib/python3.7/multiprocessing/connection.py", line 257, in poll
+    return self._poll(timeout)
+  File "/opt/anaconda3/lib/python3.7/multiprocessing/connection.py", line 414, in _poll
+    r = wait([self], timeout)
+  File "/opt/anaconda3/lib/python3.7/multiprocessing/connection.py", line 920, in wait
+    ready = selector.select(timeout)
+  File "/opt/anaconda3/lib/python3.7/selectors.py", line 415, in select
+    fd_event_list = self._selector.poll(timeout)
+KeyboardInterrupt
+
+  0%|          | 0/30 [00:00<?, ?it/s]The modle has been initialized.
+  0%|          | 0/30 [00:00<?, ?it/s]The modle has been initialized.
+  3%|▎         | 1/30 [35:53<17:20:51, 2153.51s/it]epoch: 0, time: 2153.36s   loss: 2.929
+  7%|▋         | 2/30 [1:04:20<15:42:27, 2019.55s/it]epoch: 1, time: 1706.79s   loss: 2.516
+ 10%|█         | 3/30 [1:25:43<13:29:23, 1798.65s/it]epoch: 2, time: 1283.05s   loss: 1.756
+ 13%|█▎        | 4/30 [1:42:03<11:12:55, 1552.90s/it]epoch: 3, time: 979.28s   loss: 1.521
+ 17%|█▋        | 5/30 [1:52:24<8:50:36, 1273.45s/it] epoch: 4, time: 621.25s   loss: 1.415
+ 20%|██        | 6/30 [2:02:46<7:11:13, 1078.04s/it]epoch: 5, time: 621.93s   loss: 1.512
+ 23%|██▎       | 7/30 [2:13:08<6:00:46, 941.17s/it] epoch: 6, time: 621.64s   loss: 1.333
+ 27%|██▋       | 8/30 [2:23:30<5:09:56, 845.30s/it]epoch: 7, time: 621.47s   loss: 1.214
+ 30%|███       | 9/30 [2:33:51<4:32:22, 778.22s/it]epoch: 8, time: 621.56s   loss: 1.057
+ 33%|███▎      | 10/30 [2:44:12<4:03:41, 731.09s/it]epoch: 9, time: 620.97s   loss: 1.072
+ 37%|███▋      | 11/30 [2:54:34<3:41:03, 698.10s/it]epoch: 10, time: 620.98s   loss: 0.944
+ 40%|████      | 12/30 [3:04:55<3:22:33, 675.20s/it]epoch: 11, time: 621.61s   loss: 0.9512
+ 43%|████▎     | 13/30 [3:15:17<3:06:43, 659.05s/it]epoch: 12, time: 621.22s   loss: 0.8039
+ 47%|████▋     | 14/30 [3:25:38<2:52:43, 647.70s/it]epoch: 13, time: 621.07s   loss: 0.7946
+ 50%|█████     | 15/30 [3:35:59<2:39:54, 639.62s/it]epoch: 14, time: 620.64s   loss: 0.8096
+ 53%|█████▎    | 16/30 [3:46:19<2:27:55, 633.98s/it]epoch: 15, time: 620.66s   loss: 0.6922
+ 57%|█████▋    | 17/30 [3:56:40<2:16:30, 630.05s/it]epoch: 16, time: 620.74s   loss: 0.5864
+ 60%|██████    | 18/30 [4:07:02<2:05:29, 627.46s/it]epoch: 17, time: 621.25s   loss: 0.6596
+ 63%|██████▎   | 19/30 [4:17:23<1:54:41, 625.60s/it]epoch: 18, time: 621.14s   loss: 0.7871
+ 67%|██████▋   | 20/30 [4:27:44<1:44:01, 624.14s/it]epoch: 19, time: 620.59s   loss: 0.6001
+ 70%|███████   | 21/30 [4:38:04<1:33:27, 623.09s/it]epoch: 20, time: 620.48s   loss: 0.721
+ 73%|███████▎  | 22/30 [4:48:25<1:22:59, 622.38s/it]epoch: 21, time: 620.59s   loss: 0.5956
+ 77%|███████▋  | 23/30 [4:58:46<1:12:34, 622.03s/it]epoch: 22, time: 621.08s   loss: 0.6178
+ 80%|████████  | 24/30 [5:09:06<1:02:07, 621.32s/it]epoch: 23, time: 619.51s   loss: 0.659
+ 83%|████████▎ | 25/30 [5:19:26<51:44, 620.95s/it]  epoch: 24, time: 619.93s   loss: 0.6755
+ 87%|████████▋ | 26/30 [5:29:46<41:22, 620.51s/it]epoch: 25, time: 619.35s   loss: 0.5428
+ 90%|█████████ | 27/30 [5:40:05<31:00, 620.05s/it]epoch: 26, time: 618.81s   loss: 0.5144
+ 93%|█████████▎| 28/30 [5:50:24<20:39, 619.74s/it]epoch: 27, time: 618.86s   loss: 0.4867
+ 97%|█████████▋| 29/30 [6:00:44<10:19, 619.99s/it]epoch: 28, time: 620.43s   loss: 0.4367
+100%|██████████| 30/30 [6:11:14<00:00, 622.88s/it]
+epoch: 29, time: 629.49s   loss: 0.5548
