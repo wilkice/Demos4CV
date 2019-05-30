@@ -1,5 +1,6 @@
 # Demos4CV
 Demos for Computer Vision.
+[geg](./captcha_image_recognition/README.md)
 
 # Features:
 * support number, upper case and lower case character
