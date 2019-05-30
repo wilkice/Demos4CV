@@ -24,7 +24,6 @@ def main():
     criterion = nn.CrossEntropyLoss()
     optimizer = torch.optim.Adam(net.parameters(), lr=learning_rate)
     train_dataloader = data_preprocess.get_train_dataloader()
-    loss = 0
     for epoch in tqdm(range(num_epochs)):
         start = time()
         # for train accuracy
@@ -37,7 +36,7 @@ def main():
             labels = labels.long()
             labels_ohe_predict = net(imgs)
 
-            
+            loss = 0
             for i in range(setting.char_num):
                 one_label = labels[:, i * setting.pool_length:(i+1) * setting.pool_length]
                 one_class = one_label.argmax(dim=1)
