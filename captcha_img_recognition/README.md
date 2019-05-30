@@ -4,6 +4,7 @@
 This project is mainly focus on building a captcha image recognition model. The train and validate accuracy go to 70% after 30 epochs of training on 1 million images.
 
 The captcha img contains 4 characters from a-z, A-Z, 0-9.
+
 ![](https://i.bmp.ovh/imgs/2019/05/cc817892cbfa0b6f.png)
 
 * For loss function, I use `torch.nn.CrossEntropyLoss` to calculate each loss of the 4 character and add them all.
@@ -13,8 +14,10 @@ The captcha img contains 4 characters from a-z, A-Z, 0-9.
 
 ### Need to install:
 * [captcha](https://github.com/lepture/captcha): generate captcha imgs
+
 `pip install captcha`
 * [tdqm](https://github.com/tqdm/tqdm): a Fast, Extensible Progress Bar for Python and CLI
+
 `pip install tqdm` or 
 `conda install -c conda-forge tqdm`
 * ~~psutil (optional): `conda install -c anaconda psutil`~~
