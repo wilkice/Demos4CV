@@ -1,57 +1,54 @@
-  0%|          | 0/30 [00:00<?, ?it/s]The modle has been initialized.
-Traceback (most recent call last):
-  File "train.py", line 75, in <module>
-    main()
-  File "train.py", line 33, in main
-    for batch_idx, (imgs, labels) in enumerate(train_dataloader):
-  File "/opt/anaconda3/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 576, in __next__
-    idx, batch = self._get_batch()
-  File "/opt/anaconda3/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 553, in _get_batch
-    success, data = self._try_get_batch()
-  File "/opt/anaconda3/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 511, in _try_get_batch
-    data = self.data_queue.get(timeout=timeout)
-  File "/opt/anaconda3/lib/python3.7/multiprocessing/queues.py", line 104, in get
-    if not self._poll(timeout):
-  File "/opt/anaconda3/lib/python3.7/multiprocessing/connection.py", line 257, in poll
-    return self._poll(timeout)
-  File "/opt/anaconda3/lib/python3.7/multiprocessing/connection.py", line 414, in _poll
-    r = wait([self], timeout)
-  File "/opt/anaconda3/lib/python3.7/multiprocessing/connection.py", line 920, in wait
-    ready = selector.select(timeout)
-  File "/opt/anaconda3/lib/python3.7/selectors.py", line 415, in select
-    fd_event_list = self._selector.poll(timeout)
-KeyboardInterrupt
-
-  0%|          | 0/30 [00:00<?, ?it/s]The modle has been initialized.
-  0%|          | 0/30 [00:00<?, ?it/s]The modle has been initialized.
-  3%|▎         | 1/30 [35:53<17:20:51, 2153.51s/it]epoch: 0, time: 2153.36s   loss: 2.929
-  7%|▋         | 2/30 [1:04:20<15:42:27, 2019.55s/it]epoch: 1, time: 1706.79s   loss: 2.516
- 10%|█         | 3/30 [1:25:43<13:29:23, 1798.65s/it]epoch: 2, time: 1283.05s   loss: 1.756
- 13%|█▎        | 4/30 [1:42:03<11:12:55, 1552.90s/it]epoch: 3, time: 979.28s   loss: 1.521
- 17%|█▋        | 5/30 [1:52:24<8:50:36, 1273.45s/it] epoch: 4, time: 621.25s   loss: 1.415
- 20%|██        | 6/30 [2:02:46<7:11:13, 1078.04s/it]epoch: 5, time: 621.93s   loss: 1.512
- 23%|██▎       | 7/30 [2:13:08<6:00:46, 941.17s/it] epoch: 6, time: 621.64s   loss: 1.333
- 27%|██▋       | 8/30 [2:23:30<5:09:56, 845.30s/it]epoch: 7, time: 621.47s   loss: 1.214
- 30%|███       | 9/30 [2:33:51<4:32:22, 778.22s/it]epoch: 8, time: 621.56s   loss: 1.057
- 33%|███▎      | 10/30 [2:44:12<4:03:41, 731.09s/it]epoch: 9, time: 620.97s   loss: 1.072
- 37%|███▋      | 11/30 [2:54:34<3:41:03, 698.10s/it]epoch: 10, time: 620.98s   loss: 0.944
- 40%|████      | 12/30 [3:04:55<3:22:33, 675.20s/it]epoch: 11, time: 621.61s   loss: 0.9512
- 43%|████▎     | 13/30 [3:15:17<3:06:43, 659.05s/it]epoch: 12, time: 621.22s   loss: 0.8039
- 47%|████▋     | 14/30 [3:25:38<2:52:43, 647.70s/it]epoch: 13, time: 621.07s   loss: 0.7946
- 50%|█████     | 15/30 [3:35:59<2:39:54, 639.62s/it]epoch: 14, time: 620.64s   loss: 0.8096
- 53%|█████▎    | 16/30 [3:46:19<2:27:55, 633.98s/it]epoch: 15, time: 620.66s   loss: 0.6922
- 57%|█████▋    | 17/30 [3:56:40<2:16:30, 630.05s/it]epoch: 16, time: 620.74s   loss: 0.5864
- 60%|██████    | 18/30 [4:07:02<2:05:29, 627.46s/it]epoch: 17, time: 621.25s   loss: 0.6596
- 63%|██████▎   | 19/30 [4:17:23<1:54:41, 625.60s/it]epoch: 18, time: 621.14s   loss: 0.7871
- 67%|██████▋   | 20/30 [4:27:44<1:44:01, 624.14s/it]epoch: 19, time: 620.59s   loss: 0.6001
- 70%|███████   | 21/30 [4:38:04<1:33:27, 623.09s/it]epoch: 20, time: 620.48s   loss: 0.721
- 73%|███████▎  | 22/30 [4:48:25<1:22:59, 622.38s/it]epoch: 21, time: 620.59s   loss: 0.5956
- 77%|███████▋  | 23/30 [4:58:46<1:12:34, 622.03s/it]epoch: 22, time: 621.08s   loss: 0.6178
- 80%|████████  | 24/30 [5:09:06<1:02:07, 621.32s/it]epoch: 23, time: 619.51s   loss: 0.659
- 83%|████████▎ | 25/30 [5:19:26<51:44, 620.95s/it]  epoch: 24, time: 619.93s   loss: 0.6755
- 87%|████████▋ | 26/30 [5:29:46<41:22, 620.51s/it]epoch: 25, time: 619.35s   loss: 0.5428
- 90%|█████████ | 27/30 [5:40:05<31:00, 620.05s/it]epoch: 26, time: 618.81s   loss: 0.5144
- 93%|█████████▎| 28/30 [5:50:24<20:39, 619.74s/it]epoch: 27, time: 618.86s   loss: 0.4867
- 97%|█████████▋| 29/30 [6:00:44<10:19, 619.99s/it]epoch: 28, time: 620.43s   loss: 0.4367
-100%|██████████| 30/30 [6:11:14<00:00, 622.88s/it]
-epoch: 29, time: 629.49s   loss: 0.5548
+  0%|          | 0/50 [00:00<?, ?it/s]You are using cuda:0
+The modle has been initialized.
+  2%|▏         | 1/50 [2:18:36<113:12:05, 8316.84s/it]epoch: 0, time: 8316.73s   loss: 2.973
+  4%|▍         | 2/50 [2:39:19<82:35:43, 6194.65s/it] epoch: 1, time: 1242.63s   loss: 2.456
+  6%|▌         | 3/50 [2:52:11<59:37:59, 4567.65s/it]epoch: 2, time: 771.15s   loss: 1.858
+  8%|▊         | 4/50 [3:04:30<43:41:16, 3419.06s/it]epoch: 3, time: 738.82s   loss: 1.704
+ 10%|█         | 5/50 [3:15:47<32:27:31, 2596.71s/it]epoch: 4, time: 677.67s   loss: 1.179
+ 12%|█▏        | 6/50 [3:27:06<24:42:17, 2021.30s/it]epoch: 5, time: 678.49s   loss: 1.437
+ 14%|█▍        | 7/50 [3:37:49<19:12:07, 1607.63s/it]epoch: 6, time: 642.20s   loss: 1.223
+ 16%|█▌        | 8/50 [3:48:31<15:22:37, 1318.03s/it]epoch: 7, time: 642.12s   loss: 1.147
+ 18%|█▊        | 9/50 [3:59:13<12:42:04, 1115.24s/it]epoch: 8, time: 641.87s   loss: 0.991
+ 20%|██        | 10/50 [4:09:55<10:48:51, 973.28s/it]epoch: 9, time: 641.87s   loss: 0.9828
+ 22%|██▏       | 11/50 [4:20:37<9:28:00, 873.87s/it] epoch: 10, time: 641.73s   loss: 0.7809
+ 24%|██▍       | 12/50 [4:31:18<8:29:19, 804.21s/it]epoch: 11, time: 641.48s   loss: 0.8228
+ 26%|██▌       | 13/50 [4:42:00<7:45:49, 755.38s/it]epoch: 12, time: 641.27s   loss: 0.9432
+ 28%|██▊       | 14/50 [4:52:41<7:12:38, 721.06s/it]epoch: 13, time: 640.80s   loss: 0.9312
+ 30%|███       | 15/50 [5:03:22<6:46:36, 697.05s/it]epoch: 14, time: 640.85s   loss: 0.8748
+ 32%|███▏      | 16/50 [5:14:03<6:25:24, 680.14s/it]epoch: 15, time: 640.51s   loss: 0.8348
+ 34%|███▍      | 17/50 [5:24:43<6:07:34, 668.31s/it]epoch: 16, time: 640.51s   loss: 0.8127
+ 36%|███▌      | 18/50 [5:35:24<5:52:00, 660.01s/it]epoch: 17, time: 640.45s   loss: 0.9431
+ 38%|███▊      | 19/50 [5:46:05<5:38:01, 654.25s/it]epoch: 18, time: 640.63s   loss: 0.8047
+ 40%|████      | 20/50 [5:56:46<5:25:08, 650.29s/it]epoch: 19, time: 640.88s   loss: 0.8688
+ 42%|████▏     | 21/50 [6:07:26<5:12:54, 647.39s/it]epoch: 20, time: 640.43s   loss: 0.8294
+ 44%|████▍     | 22/50 [6:18:07<5:01:07, 645.28s/it]epoch: 21, time: 640.18s   loss: 0.7763
+ 46%|████▌     | 23/50 [6:28:47<4:49:43, 643.82s/it]epoch: 22, time: 640.22s   loss: 0.6522
+ 48%|████▊     | 24/50 [6:39:28<4:38:32, 642.78s/it]epoch: 23, time: 640.18s   loss: 0.8132
+ 50%|█████     | 25/50 [6:50:08<4:27:33, 642.16s/it]epoch: 24, time: 640.51s   loss: 0.7012
+ 52%|█████▏    | 26/50 [7:00:49<4:16:39, 641.64s/it]epoch: 25, time: 640.26s   loss: 0.6626
+ 54%|█████▍    | 27/50 [7:11:29<4:05:47, 641.21s/it]epoch: 26, time: 640.04s   loss: 0.6831
+ 56%|█████▌    | 28/50 [7:22:10<3:55:02, 641.03s/it]epoch: 27, time: 640.43s   loss: 0.4999
+ 58%|█████▊    | 29/50 [7:32:50<3:44:17, 640.84s/it]epoch: 28, time: 640.20s   loss: 0.6789
+ 60%|██████    | 30/50 [7:43:30<3:33:34, 640.74s/it]epoch: 29, time: 640.32s   loss: 0.6992
+ 62%|██████▏   | 31/50 [7:54:11<3:22:53, 640.72s/it]epoch: 30, time: 640.50s   loss: 0.618
+ 64%|██████▍   | 32/50 [8:04:52<3:12:11, 640.66s/it]epoch: 31, time: 640.34s   loss: 0.5917
+ 66%|██████▌   | 33/50 [8:15:32<3:01:31, 640.68s/it]epoch: 32, time: 640.56s   loss: 0.5805
+ 68%|██████▊   | 34/50 [8:26:13<2:50:51, 640.72s/it]epoch: 33, time: 640.62s   loss: 0.5313
+ 70%|███████   | 35/50 [8:36:54<2:40:11, 640.77s/it]epoch: 34, time: 640.71s   loss: 0.5554
+ 72%|███████▏  | 36/50 [8:47:35<2:29:31, 640.82s/it]epoch: 35, time: 640.75s   loss: 0.5508
+ 74%|███████▍  | 37/50 [8:58:16<2:18:51, 640.87s/it]epoch: 36, time: 640.81s   loss: 0.4832
+ 76%|███████▌  | 38/50 [9:08:57<2:08:10, 640.90s/it]epoch: 37, time: 640.81s   loss: 0.578
+ 78%|███████▊  | 39/50 [9:19:38<1:57:30, 640.96s/it]epoch: 38, time: 640.92s   loss: 0.4208
+ 80%|████████  | 40/50 [9:30:19<1:46:49, 640.94s/it]epoch: 39, time: 640.70s   loss: 0.5011
+ 82%|████████▏ | 41/50 [9:41:00<1:36:08, 640.98s/it]epoch: 40, time: 640.89s   loss: 0.5259
+ 84%|████████▍ | 42/50 [9:51:41<1:25:27, 640.93s/it]epoch: 41, time: 640.62s   loss: 0.478
+ 86%|████████▌ | 43/50 [10:02:21<1:14:44, 640.69s/it]epoch: 42, time: 639.98s   loss: 0.3743
+ 88%|████████▊ | 44/50 [10:13:02<1:04:03, 640.65s/it]epoch: 43, time: 640.38s   loss: 0.4621
+ 90%|█████████ | 45/50 [10:23:43<53:24, 640.82s/it]  epoch: 44, time: 641.01s   loss: 0.3942
+ 92%|█████████▏| 46/50 [10:34:24<42:43, 640.87s/it]epoch: 45, time: 640.82s   loss: 0.4062
+ 94%|█████████▍| 47/50 [10:45:04<32:02, 640.81s/it]epoch: 46, time: 640.48s   loss: 0.463
+ 96%|█████████▌| 48/50 [10:55:45<21:21, 640.84s/it]epoch: 47, time: 640.73s   loss: 0.5107
+ 98%|█████████▊| 49/50 [11:06:26<10:40, 640.83s/it]epoch: 48, time: 640.61s   loss: 0.4064
+100%|██████████| 50/50 [11:17:07<00:00, 640.81s/it]
+epoch: 49, time: 640.58s   loss: 0.4184
+End at 1559361554.2601552, cost 40634s

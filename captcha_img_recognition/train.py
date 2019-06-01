@@ -12,11 +12,12 @@ from cnn_model import Net
 import setting
 # cpu() convert data to cpu
 
-num_epochs = 30
+num_epochs = 50
 learning_rate = 1e-3
 
 
 def main():
+    start_time = time()
     net = Net().to(setting.device)
     net.train()
     print('The modle has been initialized.')
@@ -68,6 +69,8 @@ def main():
         #     epoch, end-start, loss.item(), correct, total, correct/total))
 
     torch.save(net.state_dict(), './model.pt')
+    finnal_time = time()
+    print('End at {}, cost {:.0f}s'.format(finnal_time, finnal_time-start_time))
 
 
 if __name__ == "__main__":

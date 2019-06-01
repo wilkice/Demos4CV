@@ -1,4 +1,5 @@
 import os
+import collections
 
 import numpy as np
 import torch
@@ -19,6 +20,8 @@ def main():
     valid_dataloader = data_preprocess.get_valid_dataloader()
     total = len(os.listdir(setting.valid_folder_path))
     with torch.no_grad():
+        
+        miss_character = {}
         for (imgs, labels) in tqdm((valid_dataloader)):
             imgs, labels = imgs.to(setting.device), labels.to(setting.device)
             labels_ohe_predict = net(imgs)
@@ -36,7 +39,21 @@ def main():
                 # print('true label:', true_label, '   predict label:', predict_label)
                 if predict_label == true_label:
                     correct += 1
-        print('accuracy: {}/{} -- {:.4f}'.format(correct, total, correct/total))
+                else:
+                    
+                    for i in range(setting.char_num):
+                        if predict_label[i] != true_label[i]:
+                            error_info = '{} -> {}'.format(true_label[i], predict_label[i])
+                            if error_info in miss_character:
+                                miss_character[error_info] +=1
+                            else:
+                                miss_character[error_info] =1
+    sorted_miss = sorted(miss_character.items(), key=lambda kv:kv[1], reverse=True)
+    sorted_miss=collections.OrderedDict(sorted_miss)            
+    with open('miss_character.txt','w') as f:
+        for i in sorted_miss:
+            f.write('{} : {}\n'.format(i, sorted_miss[i]))
+    print('accuracy: {}/{} -- {:.4f}'.format(correct, total, correct/total))
 
 
 if __name__ == "__main__":
